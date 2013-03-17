@@ -43,11 +43,12 @@ class Deb
       fsprefix = item[0].gsub(/^\//, '')
       chdir
       FileUtils.mkdir_p fsprefix unless Dir.exists?(fsprefix)
-      files = item[1]
+      files = item[1].split(';')
       if files.kind_of?(String)
         files = [files]
       end
       files.each do |file|
+        file = file.strip
         path = dataroot + '/' + file
         @size += `du -sk #{path}`.split[0].to_i
         data = Dir.glob(dataroot + '/' + file)
