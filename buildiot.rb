@@ -27,7 +27,7 @@ class Buildiot
     @default = rules_read(ARGV[0])
     @temp = "/tmp/buildiot-#{@name}-#{randomhash}"
     Dir.mkdir @temp
-    repo = Git.new('/tmp/build-redmine/redmine', @temp, @name) # FIXME
+    repo = Git.new(@source, @temp, @name) # FIXME
     @versions.each do |version|
       @build = get_build("#{@name}_#{version[0]}") + 1
       rules_custom version[1]
