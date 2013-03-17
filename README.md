@@ -41,7 +41,7 @@ The first level of *versions* tree should contain numbers of the versions you ne
 * `branch` — name of the branch you need to build an actual version from (string);
 * any optional parameters (and **destination** from required) may be overrided there.
 
-For some details about DEB packages please reger [official policy](http://www.debian.org/doc/debian-policy/).
+For some details about DEB packages please refer [official policy](http://www.debian.org/doc/debian-policy/).
 
 License
 -------
