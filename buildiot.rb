@@ -17,7 +17,7 @@ class Buildiot
 
   REQUIRED = ['name', 'source', 'maintainer', 'versions', 'destination']
   DEFAULT  = ['outdir', 'description', 'arch']
-  OPTIONAL = ['conffiles', 'deps', 'predeps', 'builddeps', 'dirs', 'prebuild']
+  OPTIONAL = ['arch', 'conffiles', 'deps', 'predeps', 'builddeps', 'dirs', 'prebuild']
   SCRIPTS  = ['preinst', 'postinst', 'prerm', 'postrm']
 
   (REQUIRED + DEFAULT + OPTIONAL + SCRIPTS).each { |key| attr_accessor key.to_sym }
