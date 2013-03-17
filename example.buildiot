@@ -1,0 +1,27 @@
+// this is example file how nice may Buildiot rules be
+{
+  "name": "buildiot",
+  "source": "https://github.com/Mendor/buildiot.git",
+  "outdir": "/tmp/",
+  "maintainer": "Nikita K. <mendor@yuuzukiyo.net>",
+  "description": [
+    "DEB package generator from Git branches.",
+    "It will rock. Sometime."
+  ],
+  "deps": [
+    "ruby",
+    "git (>= 1.7)",
+    "dpkg (>= 1.15)",
+    "rsync (>= 3.0)",
+    "md5deep (>= 3.6)"
+  ],
+  "destination": {
+    "/opt/buildiot": "buildiot.rb; lib"
+  },
+  "versions": {
+    "0.2a": {
+      "branch": "master",
+      "postinst": "geminstall.sh"
+    }
+  }
+}
