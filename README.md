@@ -1,7 +1,7 @@
 Buildiot
 ========
 
-Automatic DEB package generator from Git branches. Currently in weak alpha.
+Automatic DEB package generator from Git or Mercurial branches. Currently in weak alpha.
 
 System requirements
 -------------------
@@ -23,9 +23,9 @@ JSON file. You can see *example.buildiot* as a simple example.
 The first level of JSON tree **must** contain the following parameters:
 * `name` — package basic name (string);
 * `vcs` — version control system you use; currently supported **git** and **hg** (string);
-* `source` — local or remote address of Git repo used for package generation (string);
+* `source` — local or remote address of a repo used for package generation (string);
 * `maintainer` — package maintainer data (string);
-* `versions` — parent tree for information which package version you need to build from different Git branches (details below);
+* `versions` — parent tree for information which package version you need to build from different branches (details below);
 * `destination` — contains information about which files must be moved to some directories during package installation (array of hashes).
 
 Optional parameters of the first tree level:
@@ -35,8 +35,8 @@ Optional parameters of the first tree level:
 * `deps`, `predeps`, `builddeps` — basic, pre- and build dependences for package (arrays of strings);
 * `dirs` — list of empty directories must be created during package installation (array of strings);
 * `conffiles` — list of configuration files of your software (dpkg asks about re-writing them during package updates) (array of strings);
-* `preinst`, `postinst`, `prerm`, `postrm` — path to appropriate executable files for DEB package; in case its path starts from **/** character, they are looked in local filesystem, otherwise they are looked inside Git repo (strings);
-* `prebuild` — path to script should be executed before package generation starts e.g. compilation of sources received from Git repo (string).
+* `preinst`, `postinst`, `prerm`, `postrm` — path to appropriate executable files for DEB package; in case its path starts from **/** character, they are looked in local filesystem, otherwise they are looked inside repo (strings);
+* `prebuild` — path to script should be executed before package generation starts e.g. compilation of sources received from a repo (string).
 
 ## 'versions' tree
 The first level of *versions* tree should contain numbers of the versions you need to build (examples: `1.0`, `3.3-dev`, `1.3.2+squeeze1`). Every version number is root for the following tree items:
