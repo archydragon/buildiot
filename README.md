@@ -22,7 +22,7 @@ JSON file. You can see *example.buildiot* as a simple example.
 
 The first level of JSON tree **must** contain the following parameters:
 * `name` — package basic name (string);
-* `vcs` — version control system you use; currently only **git** supported (string);
+* `vcs` — version control system you use; currently supported **git** and **hg** (string);
 * `source` — local or remote address of Git repo used for package generation (string);
 * `maintainer` — package maintainer data (string);
 * `versions` — parent tree for information which package version you need to build from different Git branches (details below);
