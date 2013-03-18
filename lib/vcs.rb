@@ -5,6 +5,7 @@
 
 require 'rubygems'
 require './lib/vcs/git.rb'
+require './lib/vcs/hg.rb'
 
 class VCS
 
@@ -16,7 +17,9 @@ class VCS
     'ftps',
     'ssh',
     'git',
+    'hg',
     'ssh+git',
+    'ssh+hg',
     'rsync',
     'file',
   ]
@@ -27,6 +30,8 @@ class VCS
     case vcs
     when 'git'
       extend Git
+    when 'hg'
+      extend Hg
     else
       throw "VCS '#{vcs}' isn't supported."
     end

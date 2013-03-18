@@ -1,13 +1,15 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
-# class for Git
+# module for Git
 
 require 'rubygems'
 require 'rugged'
 require 'fileutils'
 
 module Git
+
+  ORIGIN = '/origin'
 
   # export one branch
   def export(branch)

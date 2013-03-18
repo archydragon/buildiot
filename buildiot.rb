@@ -92,7 +92,7 @@ class Buildiot
       end
     end
     self.outdir      = rules['outdir'] ||= Dir.pwd
-    self.description = rules['description'] ||= "Package generated with Buildiot."
+    self.description = rules['description'] ||= ["Package generated with Buildiot."]
     self.arch        = rules['arch'] ||= 'all'
     (OPTIONAL + SCRIPTS).each do |id|
       self.send("#{id}=", rules[id])

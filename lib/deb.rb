@@ -59,7 +59,8 @@ class Deb
 
   # generate dependencies
   def gen_deps(deps_list = nil, predeps_list = nil, builddeps_list = nil)
-    @deps  = "Depends: #{deps_list.join(', ')}\n" unless deps_list.nil?
+    @deps  = ''
+    @deps += "Depends: #{deps_list.join(', ')}\n" unless deps_list.nil?
     @deps += "Pre-Depends: #{predeps_list.join(', ')}\n" unless predeps_list.nil?
     @deps += "Build-Depends: #{builddeps_list.join(', ')}\n" unless builddeps_list.nil?
   end
