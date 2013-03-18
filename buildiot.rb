@@ -7,7 +7,7 @@ require 'rubygems'
 require 'optparse'
 require 'zlib'
 require 'json'
-require './lib/git.rb'
+require './lib/vcs.rb'
 require './lib/deb.rb'
 
 class Buildiot
@@ -15,9 +15,9 @@ class Buildiot
   CACHEDIR = ENV['HOME'] + '/.buildiot/'
   BUILDS   = CACHEDIR + 'builds'
 
-  REQUIRED = ['name', 'source', 'maintainer', 'versions', 'destination']
+  REQUIRED = ['name', 'vcs', 'source', 'maintainer', 'versions', 'destination']
   DEFAULT  = ['outdir', 'description', 'arch']
-  OPTIONAL = ['arch', 'conffiles', 'deps', 'predeps', 'builddeps', 'dirs', 'prebuild']
+  OPTIONAL = ['conffiles', 'deps', 'predeps', 'builddeps', 'dirs', 'prebuild']
   SCRIPTS  = ['preinst', 'postinst', 'prerm', 'postrm']
 
   (REQUIRED + DEFAULT + OPTIONAL + SCRIPTS).each { |key| attr_accessor key.to_sym }
@@ -27,7 +27,7 @@ class Buildiot
     @default = rules_read(ARGV[0])
     @temp = "/tmp/buildiot-#{@name}-#{randomhash}"
     Dir.mkdir @temp
-    repo = Git.new(@source, @temp, @name)
+    repo = VCS.new(@vcs, @source, @temp, @name)
     @versions.each do |version|
       @build = get_build("#{@name}_#{version[0]}") + 1
       rules_custom version[1]

@@ -1,7 +1,8 @@
 // this is example file how nice may Buildiot rules be
 {
   "name": "buildiot",
-  "source": "https://github.com/Mendor/buildiot.git",
+  "vcs": "git",
+  "source": "https://github.com/Mendor/buildiot",
   "outdir": "/tmp/",
   "maintainer": "Nikita K. <mendor@yuuzukiyo.net>",
   "description": [
@@ -19,7 +20,7 @@
     "/opt/buildiot": "buildiot.rb; lib"
   },
   "versions": {
-    "0.2a": {
+    "0.3a": {
       "branch": "master",
       "postinst": "geminstall.sh"
     }
