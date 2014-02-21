@@ -5,6 +5,7 @@
   "source": "https://github.com/Mendor/buildiot",
   "outdir": "/tmp/",
   "maintainer": "Nikita K. <mendor@yuuzukiyo.net>",
+  "section": "devel",
   "description": [
     "DEB package generator from Git branches.",
     "It will rock. Sometime."

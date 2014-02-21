@@ -9,12 +9,13 @@ require 'fileutils'
 class Deb
 
   # YOU MUST CONSTRUCT ADDITIONAL PYLONS
-  def initialize(name, version, build, maintainer, description)
+  def initialize(name, version, build, maintainer, section, description)
     @name        = name
     @version     = version
     @build       = build
     @size        = 0
     @maintainer  = maintainer
+    @section     = section
     @description = description
     @arch        = 'all'
   end
@@ -130,6 +131,7 @@ class Deb
     control = <<CTRLVAR
 Package: #{@name}
 Version: #{@version}
+Section: #{@section}
 Maintainer: #{@maintainer}
 Architecture: #{@arch}
 Installed-Size: #{@size}

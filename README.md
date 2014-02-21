@@ -25,6 +25,7 @@ The first level of JSON tree **must** contain the following parameters:
 * `vcs` — version control system you use; currently supported **git** and **hg** (string);
 * `source` — local or remote address of a repo used for package generation (string);
 * `maintainer` — package maintainer data (string);
+* `section` — package section
 * `versions` — parent tree for information which package version you need to build from different branches (details below);
 * `destination` — contains information about which files must be moved to some directories during package installation (array of hashes).
 

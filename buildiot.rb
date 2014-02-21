@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -wKU
+#!/usr/bin/env ruby
 # encoding: utf-8
 
 ###   HERE BE DRAGONS   ###
@@ -15,7 +15,7 @@ class Buildiot
   CACHEDIR = ENV['HOME'] + '/.buildiot/'
   BUILDS   = CACHEDIR + 'builds'
 
-  REQUIRED = ['name', 'vcs', 'source', 'maintainer', 'versions', 'destination']
+  REQUIRED = ['name', 'vcs', 'source', 'maintainer', 'section', 'versions', 'destination']
   DEFAULT  = ['outdir', 'description', 'arch']
   OPTIONAL = ['conffiles', 'deps', 'predeps', 'builddeps', 'dirs', 'prebuild']
   SCRIPTS  = ['preinst', 'postinst', 'prerm', 'postrm']
@@ -32,7 +32,7 @@ class Buildiot
       @build = get_build("#{@name}_#{version[0]}") + 1
       rules_custom version[1]
       @dataroot = repo.export version[1]['branch']
-      package = Deb.new(@name, version[0], @build, @maintainer, @description)
+      package = Deb.new(@name, version[0], @build, @maintainer, @section, @description)
       package.arch_set(@arch) unless @arch == 'all'
       package.gen_deps(@deps, @predeps, @builddeps)
       package.directory_set(@temp + '/' + @name)
