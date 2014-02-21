@@ -30,7 +30,8 @@ The first level of JSON tree **must** contain the following parameters:
 * `destination` — contains information about which files must be moved to some directories during package installation (array of hashes).
 
 Optional parameters of the first tree level:
-* `arch` — package architecture (string);
+* `arch` — package architecture ('all' by default) (string);
+* `priority` — package priority ('optional' by default) (string);
 * `outdir` — the directory generated packages will be saved to (string);
 * `description` — package description (array of strings);
 * `deps`, `predeps`, `builddeps` — basic, pre- and build dependences for package (arrays of strings);
