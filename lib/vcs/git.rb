@@ -36,8 +36,8 @@ module Git
     @repo = Rugged::Repository.new(@path)
     branchlist = []
     @repo.refs.each do |ref|
-      if !ref.scan(/origin/).empty?
-        tag = ref.split('/').last
+      if !ref.name.scan(/origin/).empty?
+        tag = ref.name.split('/').last
         branchlist.push tag
       end
     end
